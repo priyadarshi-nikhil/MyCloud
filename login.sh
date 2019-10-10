@@ -1,6 +1,10 @@
 #!/bin/bash
-echo "Welcome to MyCloud Login!"
-printf "\nEnter the username: \n"
+printf "\n \n \n
+           _____________________________
+	  *  Welcome to MyCloud Login!  *
+	  |_____________________________| "
+
+printf "\n\n\n\nEnter the username: \n"
 read name
 
 
@@ -13,3 +17,4 @@ export name pass
 ./auth.sh
 
 #echo "$name $pass"
+	

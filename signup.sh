@@ -13,8 +13,7 @@ read pass
 
 if mysql -u host -h 10.0.3.51 -p123456 -e "INSERT INTO mycloud.users(username, email, password) VALUES('$name', '$mail', '$pass');" ;then
 	echo "Registered successfully!"
-	export name pass
-	./userAdd.sh
+	./login.sh	
 else
 	echo "Registration Failure!"
 fi

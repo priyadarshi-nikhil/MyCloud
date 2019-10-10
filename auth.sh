@@ -12,8 +12,9 @@ output=$(mysql -u host -h 10.0.3.51 -p123456 -e "SELECT username,password from m
 
 #echo $output
 if [ -n "$output" ] && [ "$(echo $output | wc -l)" -eq 1 ];then
-	#echo "Logged In"
-	ssh "$name"@10.0.3.231
+	echo "Logged In"
+	export name pass
+	./landing.sh
 else
 	echo "Login Failed!"
 fi
