@@ -5,6 +5,7 @@ name=$(echo $user | sed 's/[^ ]* *//')
 printf "\n\n\nHi! "$name"   \n\n\n"
 
 echo "Press:"
+echo 	"0. Your MyCloud Directory."
 echo 	"1. View Account information."
 echo 	"2. Buy/Upgrade Subscription."
 echo 	"3. Buy/Upgrade Backup plan."
@@ -15,6 +16,7 @@ echo 	"6. Restore backup to local system."
 read choice
 export name choice
 case "$choice" in
+				0) ./mycloud.sh ;;
 				1) ./ac_info.sh ;;
 				2) ./subs.sh ;;
 				3) ./backup.sh ;;
