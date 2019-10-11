@@ -8,12 +8,14 @@ read name
 
 printf "Enter Password:\n"
 read pass 
-
+export mail name pass
 # username is set as primary key, so duplicate user registration leads to reg. failure.
 
 if mysql -u host -h 10.0.3.51 -p123456 -e "INSERT INTO mycloud.users(username, email, password) VALUES('$name', '$mail', '$pass');" ;then
 	echo "Registered successfully!"
-	./login.sh	
+	./buyPlans.sh	
 else
 	echo "Registration Failure!"
 fi
+
+
