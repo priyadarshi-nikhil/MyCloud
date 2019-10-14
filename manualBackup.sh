@@ -1,6 +1,4 @@
 #!/bin/bash
-mkdir -p ~/MyCloud/"$name"
-
 #Source Dir
 backup_files="/root/MyCloud/"$name"/"
 
@@ -36,7 +34,6 @@ date
 
 # rsync options source destination
 # scp options src dest
-
 
 
 
