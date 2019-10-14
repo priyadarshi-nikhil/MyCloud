@@ -66,7 +66,7 @@ fi
 printf "\n\nYou have chosen a $sub plan for $bkup backups upto $storage GB storage in MyCloud!
 		Press y|Y to confirm and proceed to cart. Any other key to choose again.\n"
 
-export sub subCost bkup bkupCost storage storeCost
+export choice1 choice2 choice3 sub subCost bkup bkupCost storage storeCost
 
 function cart {
 
