@@ -22,8 +22,14 @@ if [ "$otp" -eq 1234 ] ; then
 		cp backupScript.sh /etc/cron.weekly
 	fi
 
-	
+	echo "Redirecting to login page..."
+	sleep 5s
+	./login.sh
 	
 else
-	echo "payment failed"
+	echo "payment failed...Enter otp again.."
+	./signup.sh
+
 fi
+
+

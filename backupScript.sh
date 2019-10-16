@@ -1,42 +1,29 @@
 #!/bin/bash
 mkdir -p ~/MyCloud/"$name"
-
 #Source Dir
-backup_files="/root/MyCloud/"$name"/"
+src="/root/MyCloud/"$name""
 
 #Destination
-dest="/root/home/"$name""
+dest="/home/"$name""
+
 
 #Create Archive Filename
-#day=$(date +%Y-%m-%d)
-#hostname=$(hostname -s)
-#archive_file="$hostname-$day.tar.gz"
-
-#Print start status message
-echo "Backing up $backup_files to $dest/$archive_file"
-date 
-echo
+day=$(date +%Y-%m-%d-%H-%M-%S)
+DAY=$(date +%A)
+archive_file="$day.tar.gz"
+export $DAY
 
 #Backup the files using tar
-#tar czf $dest/$archive_file $backup_files
-
-rsync -avzh $backup_files root@10.0.3.231:/home/"$name"
-#scp /root/MyCloud/"$name"/*gz root@10.0.3.231:/home/"$name"
-#rm /root/MyCloud/"$name"/*gz
-
-#Print end status message
-echo
-echo "Backup finished."
-date
+tar czf /root/MyCloud/$name/$archive_file --exclude='*.tar.gz' /root/MyCloud/$name 
 
 
-
-#Long listing of files in $dest to check file sizes
-#ls -l $dest
-
-# rsync options source destination
-# scp options src dest
+number=$(lxc-attach -n cloud-lxc -- ls /home/$name |grep .tar.gz | wc -l)
+if [ $number -eq 10 ];then
+	rm $(find /var/lib/lxc/cloud-lxc/rootfs/home/$name -type f|grep .tar.gz | sort | head -n 1)
+fi
 
 
+rsync -az /root/MyCloud/$name/ root@10.0.3.231:/home/$name/
+rm -r /root/MyCloud/$name/*.tar.gz
 
 

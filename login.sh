@@ -14,7 +14,7 @@ read pass
 #name and pass exported to auth.sh authentication script for login auth
 
 export name pass
-./auth.sh
+bash auth.sh
 
 #echo "$name $pass"
 	

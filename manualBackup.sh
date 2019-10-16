@@ -6,9 +6,8 @@ backup_files="/root/MyCloud/"$name"/"
 dest="/root/home/"$name""
 
 #Create Archive Filename
-#day=$(date +%Y-%m-%d)
-#hostname=$(hostname -s)
-#archive_file="$hostname-$day.tar.gz"
+#day=$(date +%Y-%m-%d-%R)
+#archive_file="$day.tar.gz"
 
 #Print start status message
 echo "Backing up $backup_files to $dest/$archive_file"
