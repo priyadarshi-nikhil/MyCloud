@@ -12,9 +12,9 @@ mkdir -p /root/MyCloud/$name/tmp/
 tar -xf /root/MyCloud/$name/$file -C /root/MyCloud/$name/tmp/ --strip-components=3
 rm /root/MyCloud/$name/$file
 echo "Files only on MyCloud:"
-diff /root/MyCloud/$name /root/MyCloud/$name/tmp/ | grep "/root/MyCloud/$name/tmp/" |awk '{print $4}'
+diff /root/MyCloud/$name /root/MyCloud/$name/tmp/ | grep tmp |awk '{print $4}'
 echo "Files only on Local:"
-diff /root/MyCloud/$name /root/MyCloud/$name/tmp/ |grep -w "/root/MyCloud/$name" |awk '{print $4}'
+diff /root/MyCloud/$name /root/MyCloud/$name/tmp/ |grep -v tmp |awk '{print $4}'
 #ls -al /root/MyCloud/$name |grep '^-' | awk '{print $9}'
 
 rm -r /root/MyCloud/$name/tmp

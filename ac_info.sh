@@ -31,5 +31,5 @@ x=$(lxc-attach -n cloud-lxc -- chage --list $name | grep Account| awk '{print $4
  
 daysLeft=$((($(date +%s --date "$x")-$(date +%s))/(3600*24)))
 
-echo " $daysLeft left for your account to expire."
+echo " $daysLeft days left for your account to expire."
 ./landing.sh

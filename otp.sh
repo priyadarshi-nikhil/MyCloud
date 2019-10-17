@@ -22,6 +22,7 @@ if [ "$otp" -eq 1234 ] ; then
 		cp backupScript.sh /etc/cron.weekly
 	fi
 
+lxc-attach -n mail-admin -- su mycloud-mail -c 'echo "Congratulations $name! You have been successfully registered on MyCloud. You have chosen a $sub plan for $bkup backups upto $storage GB storage" | mail -s "Do Not Reply" $mail'
 	echo "Redirecting to login page..."
 	sleep 5s
 	./login.sh
