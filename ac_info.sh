@@ -1,8 +1,8 @@
 #!/bin/bash
 
-s=$(mysql -u host -h 10.0.3.51 -p123456 -e "SELECT storage from mycloud.info where username='$name';")
+s=$(mysql -u host -h MariaDB-lxc.mycloud.com -p123456 -e "SELECT storage from mycloud.info where username='$name';")
 s=$(echo $s|sed 's/[^ ]* *//')
-t=$(mysql -u host -h 10.0.3.51 -p123456 -e "SELECT subscription from mycloud.info where username='$name';")
+t=$(mysql -u host -h MariaDB-lxc.mycloud.com -p123456 -e "SELECT subscription from mycloud.info where username='$name';")
 t=$(echo $t|sed 's/[^ ]* *//')
 
 echo

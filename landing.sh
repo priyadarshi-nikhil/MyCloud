@@ -1,5 +1,5 @@
 #!/bin/bash
-user=$(mysql -u host -h 10.0.3.51 -p123456 -e "SELECT username from mycloud.users where username='$name';")
+user=$(mysql -u host -h MariaDB-lxc.mycloud.com -p123456 -e "SELECT username from mycloud.users where username='$name';")
 
 name=$(echo $user | sed 's/[^ ]* *//')
 printf "\n\n\nHi! "$name"   \n\n\n"

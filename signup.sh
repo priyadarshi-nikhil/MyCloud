@@ -11,8 +11,9 @@ read pass
 export mail name pass
 # username is set as primary key, so duplicate user registration leads to reg. failure.
 
-if mysql -u host -h 10.0.3.51 -p123456 -e "INSERT INTO mycloud.users(username, email, password) VALUES('$name', '$mail', '$pass');" ;then
+if mysql -u host -h MariaDB-lxc.mycloud.com -p123456 -e "INSERT INTO mycloud.users(username, email, password) VALUES('$name', '$mail', '$pass');" ;then
 	echo "Registered successfully!"
+	printf "\n $(date): $name Registered. <br>" | ssh root@10.0.3.34 "cat >> /var/www/html/userLogs.html"
 	./buyPlans.sh	
 else
 	echo "Registration Failure!"

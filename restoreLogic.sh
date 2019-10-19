@@ -17,6 +17,7 @@ if [ "$rl" -eq 1 ];then
 	rm -r /root/MyCloud/$name/tmp
 
 	echo "....Merge Successful!"
+	printf "\n $(date): $name Merged with $restfile. <br>" | ssh root@10.0.3.34 "cat >> /var/www/html/userLogs.html"
 fi
 
 if [ "$rl" -eq 2 ];then
@@ -28,4 +29,5 @@ if [ "$rl" -eq 2 ];then
 
 
 	echo "....Revert Successful!"
+	printf "\n $(date): $name Reverted to $restfile. <br>" | ssh root@10.0.3.34 "cat >> /var/www/html/userLogs.html"
 fi

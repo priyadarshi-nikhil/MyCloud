@@ -1,6 +1,6 @@
 #!/bin/bash
 
-plan=$(mysql -u host -h 10.0.3.51 -p123456 -e "SELECT backup from mycloud.info where username='$name';")
+plan=$(mysql -u host -h MariaDB-lxc.mycloud.com -p123456 -e "SELECT backup from mycloud.info where username='$name';")
 
 plan=$(echo $plan | sed 's/[^ ]* *//')
 printf "\n\n\nHi! "$name"   \n\n\n"
