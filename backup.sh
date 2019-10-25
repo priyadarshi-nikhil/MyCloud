@@ -12,6 +12,7 @@ if [ "$plan" = "manual" ]; then
 	read ch
 	if [ "$ch" -eq 1 ];then
 		./backupScript.sh
+		./landing.sh
 	else
 		echo "...Exiting..."
 		./landing.sh

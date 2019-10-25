@@ -10,7 +10,7 @@ echo 	"0. Your MyCloud Directory."
 echo 	"1. View Account information."
 echo 	"2. Backups"
 echo 	"3. Smart-View Mode."
-echo 	"4. Restore backup to local system."
+#echo 	"4. Restore backup to local system."
 
 read choice
 export name choice
@@ -19,7 +19,7 @@ case "$choice" in
 				1) ./ac_info.sh ;;
 				2) ./backup.sh ;;
 				3) ./sview.sh ;;
-				4) ./restore.sh ;; 
+				#4) ./restore.sh ;; 
 				*) 	echo "You entered something else." ;;
 			esac
 

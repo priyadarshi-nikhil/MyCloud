@@ -14,7 +14,7 @@ archive_file="$day.tar.gz"
 export $DAY
 
 #Backup the files using tar
-tar czf /root/MyCloud/$name/$archive_file --exclude='*.tar.gz' /root/MyCloud/$name 
+tar czf /root/MyCloud/$name/$archive_file --exclude='*.tar.gz' /root/MyCloud/$name  > /dev/null 2>&1
 
 
 number=$(lxc-attach -n cloud-lxc -- ls /home/$name |grep .tar.gz | wc -l)

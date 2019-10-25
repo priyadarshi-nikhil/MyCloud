@@ -1,0 +1,11 @@
+zone "mycloud.com" {
+    type master;
+    file "/etc/bind/zones/db.mycloud.com"; # zone file path
+    allow-transfer { 10.0.3.93; };           # ns2 private IP address - secondary
+};
+
+zone "3.0.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.10.0.3";  # 10.0.3.0/24 subnet
+    allow-transfer { 10.0.3.93; };  # ns2 private IP address - secondary
+};

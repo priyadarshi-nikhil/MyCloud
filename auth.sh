@@ -18,4 +18,6 @@ if [ -n "$output" ] && [ "$(echo $output | wc -l)" -eq 1 ];then
 	./landing.sh
 else
 	echo "Login Failed!"
+	./login.sh
+
 fi
